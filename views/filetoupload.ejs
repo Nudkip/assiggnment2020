@@ -1,11 +1,26 @@
 <html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Upload a photo</title>
+</head>
+
 <body>
-	<form action="/filetoupload" method="post" enctype="multipart/form-data">
-		<p>Upload a Photo</p>
-             	Title: <input type="text" name="title"><br>
-                Description: <input type="text" name="description"><br>
-		Photo: <input type="file" name="filetoupload" accept="image/jpeg,image/jpg" required><br>
-                <input type="submit" value="Upload">
-        </form>
+	<div class="container">
+			<div class="row">
+					<form action="/filetoupload" method="post" enctype="multipart/form-data">
+						<p class="h4 mb-4">Upload a Photo</p>
+						  <div class="form-group">
+				             	Title: <input type="text" name="title"><br>
+				                Description: <input type="text" name="description"><br>
+							</div>
+						Photo: <input type="file" name="filetoupload" accept="image/jpeg,image/jpg" required><br>
+				                <input type="submit" value="Upload">
+				        </form>
 </body>
 </html>
