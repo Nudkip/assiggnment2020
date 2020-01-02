@@ -1,48 +1,12 @@
 <html>
-
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-    <title>EXIF Demo</title>
-</head>
-
-
    <body>
-     <div class="container">
-       <div class="jumbtron">
-           <h1 class="display=4"><%= t %></h1>
-           <p class="lead"><%= d %></p>
-       </div>
-       <div class="row">
-           <div class="col-lg-8">
-              <img src="data:image/jepg;base64,<%= i %>" width="2000" height="1200">
-              
-           </div>
-           <div class="col-lg-4">
-               <div>
-                   <ul class="list-group">
-                       <li class="list-group-item">Make: <%= ma %></li>
-                       <li class="list-group-item">Model: <%= mo %></li>
-                       <li class="list-group-item">Created on: <%= ce %></li>
-                       
-                      
-                   </ul>
-                   Location:<a href="/map">Map</a><br>
-               </div>
-               <div class="mt-2">
-                 <a href="/filetoupload" class='btn btn-primary'>Home</a>
-                  
-               </div>
-           </div>
-       </div>
-      
-       
-     </div>
+       <%= t %><br>
+       <%= d %><br>
+       <img src="data:image/jepg;base64,<%= i %>" width="2000" height="1200"><br>
+       Make: <%= ma %><br>
+       Model: <%= mo %><br>
+       Created on: <%= c %><br>
+       Location:<a href="/map">Map</a><br>
+       <a href="/filetoupload">Home</a><br>
    </body>
 </html>
