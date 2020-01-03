@@ -40,35 +40,27 @@ app.post('/filetoupload' , (req,res) => {
 		fs.readFile(files.filetoupload.path, (err,data) => {
 			image = new Buffer.from(data).toString('base64');
 			try {
-    				new ExifImage({ image : files.filetoupload.path }, function (error, exifData) {
-        				if (error){
-            					console.log('Error: '+error.message);
-						res.redirect('/error');
-					}else{
-						console.log(exifData);
-						make = exifData.image.Make; 
-						model = exifData.image.Model;
-						createTime = exifData.exif.CreateDate;
-						iw =  exifData.image.ImageWidth;
-						ih =  exifData.image.ImageHeight;
-						dla = exifData.gps.GPSLatitude[0];
-						mla = exifData.gps.GPSLatitude[1];
-						sla = exifData.gps.GPSLatitude[2];
-						lat = dla + mla/60 + sla/3600;
-						dlo = exifData.gps.GPSLongitude[0];
-						mlo = exifData.gps.GPSLongitude[1];
-						slo = exifData.gps.GPSLongitude[2];
-						lon = dlo + mlo/60 + slo/3600;
-						res.status(200).render('display', {t :title, d :description, i: image, ma: make, mo: model, c: createTime, ih: ih, iw: iw});
-						app.get('/map', (req,res) => {
-							res.status(200).render('map' ,{la: lat, lo: lon});
-						}); 
-					}
-    				});
-			} catch (error) {
-   				console.log('Error: ' + error.message);
-				res.redirect('/error');
-			}
+        new ExifImage({ image: photo.path }, (error, exifData) => {
+            if (error) {
+                console.log('Error: ' + error.message);
+                return res.render('error', {error});
+            } else {
+                console.log(exifData);
+                const data = {
+                    title,
+                    description,
+                    filename,
+                    image: exifData.image,
+                    exif: exifData.exif,
+                    gps: exifData.gps
+                };
+                return res.render('display', data);
+            }
+        })
+    } catch (error) {
+        console.log('Error: ' + error.message);
+        return res.render('error', {error});
+    }
 		});
 	});
 });
