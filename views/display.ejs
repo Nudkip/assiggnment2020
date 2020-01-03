@@ -1,12 +1,30 @@
 <html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
    <body>
-       <%= t %><br>
-       <%= d %><br>
+     <h1 class="display=4"><%= t %></h1>
+     <p class="lead"><%= d %></p>
        <img src="data:image/jepg;base64,<%= i %>" width="2000" height="1200"><br>
-       Make: <%= ma %><br>
-       Model: <%= mo %><br>
-       Created on: <%= c %><br>
-       Location:<a href="/map">Map</a><br>
+       <div class="col-lg-4">
+           <div>
+               <ul class="list-group">
+                   <li class="list-group-item">Make: <%= ma %></li>
+                   <li class="list-group-item">Model: <%= mo %></li>
+                   <li class="list-group-item">Created on: <%= c %></li>
+                   <li class="list-group-item">Location: <a href="/map">Map</a></li>
+                   
+                  
+               </ul>
+           </div>
+      <div class="mt-2">
        <a href="/filetoupload">Home</a><br>
+      </div>
    </body>
 </html>
